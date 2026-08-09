@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SandBox — Business Growth Partner</title>
+<meta name="description" content="SandBox helps businesses grow through Sales, Branding, Creative Solutions and Talent.">
+<style>
+:root{
+  --bg:#f4f3ee; --ink:#111; --muted:#666; --line:#d8d6ce;
+  --accent:#b8ff35; --dark:#111; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;background:rgba(244,243,238,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.08)}
+.logo{font-size:25px;font-weight:900;letter-spacing:-1.5px}
+.navlinks{display:flex;gap:28px;font-size:14px;font-weight:700}
+.navlinks a:hover{opacity:.55}
+.menu{display:none;border:0;background:none;font-size:25px}
+.hero{min-height:100vh;padding:150px 5vw 70px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.kicker{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px}
+h1{font-size:clamp(64px,10.5vw,150px);line-height:.82;letter-spacing:-8px;max-width:1150px}
+h1 span{display:block}
+.hero .accent{color:#222;position:relative}
+.hero .accent:after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:12px;background:var(--accent);z-index:-1;transform:skew(-12deg)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:end;margin-top:65px;max-width:1150px}
+.hero-copy{max-width:520px;font-size:19px}
+.btn{display:inline-block;background:var(--dark);color:white;padding:16px 24px;border-radius:100px;font-weight:800;margin-top:24px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0002}
+.marquee{background:var(--accent);overflow:hidden;white-space:nowrap;border-top:2px solid #111;border-bottom:2px solid #111}
+.marquee div{display:inline-block;padding:13px 0;font-size:15px;font-weight:900;letter-spacing:1px;animation:scroll 20s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+section{padding:110px 5vw;border-bottom:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:1fr 2fr;gap:50px;margin-bottom:65px}
+.num{font-size:13px;font-weight:900;letter-spacing:2px}
+.section-title{font-size:clamp(42px,6vw,80px);line-height:.9;letter-spacing:-4px}
+.intro{font-size:21px;max-width:700px;color:#333}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111;border:1px solid #111}
+.card{background:var(--bg);padding:38px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+.card:hover{background:var(--accent)}
+.card-num{font-size:13px;font-weight:900}
+.card h3{font-size:34px;letter-spacing:-1.5px;margin-bottom:12px}
+.card p{color:#555}
+.card:hover p{color:#111}
+.arrow{font-size:28px}
+.statement{background:#111;color:#fff;min-height:65vh;display:flex;align-items:center}
+.statement h2{font-size:clamp(48px,8vw,110px);line-height:.9;letter-spacing:-6px;max-width:1050px}
+.statement em{color:var(--accent);font-style:normal}
+.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #111;border-left:1px solid #111}
+.step{padding:32px;border-right:1px solid #111;border-bottom:1px solid #111;min-height:250px}
+.step strong{font-size:13px;letter-spacing:2px}
+.step h3{font-size:29px;margin:45px 0 10px;letter-spacing:-1px}
+.step p{color:#666}
+.work{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
+.workbox{background:#ddd;min-height:300px;padding:30px;display:flex;align-items:end;position:relative;overflow:hidden}
+.workbox.big{min-height:520px;background:#181818;color:#fff}
+.workbox:nth-child(2){background:#d5ff80}
+.workbox:nth-child(3){background:#ddd}
+.workbox h3{font-size:42px;letter-spacing:-2px;position:relative;z-index:2}
+.workbox:before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:var(--accent);right:-60px;top:-60px;opacity:.8}
+.contact{background:var(--accent)}
+.contact h2{font-size:clamp(55px,9vw,125px);line-height:.82;letter-spacing:-7px;max-width:1000px}
+.contact p{font-size:20px;max-width:600px;margin-top:30px}
+.contact .btn{background:#111;color:#fff}
+footer{background:#111;color:#fff;padding:45px 5vw;display:flex;justify-content:space-between;gap:30px}
+footer small{color:#aaa}
+@media(max-width:800px){
+ .navlinks{display:none}.menu{display:block}
+ .hero{padding-top:130px}.hero-bottom{display:block}
+ h1{letter-spacing:-5px}
+ .section-head{grid-template-columns:1fr;gap:25px}
+ .services,.process,.work{grid-template-columns:1fr}
+ .workbox.big{min-height:360px}
+ .card{min-height:280px}
+ footer{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="logo" href="#">SandBox.</a>
+  <div class="navlinks">
+    <a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a>
+  </div>
+  <button class="menu" onclick="document.querySelector('.navlinks').classList.toggle('show')">☰</button>
+</nav>
+
+<header class="hero">
+  <div class="kicker">Business Growth Partner / Yogyakarta — Indonesia</div>
+  <h1>YOUR BUSINESS.<span>OUR <span class="accent">PLAYGROUND.</span></span></h1>
+  <div class="hero-bottom">
+    <div class="hero-copy">
+      SandBox helps businesses move faster through <b>Sales, Branding, Creative Solutions and Talent.</b>
+      We don't just advise. We build, execute and grow with you.
+      <br><a class="btn" href="#contact">Let's work together →</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div>BUILD • GROW • SCALE • BUILD • GROW • SCALE • BUILD • GROW • SCALE • BUILD • GROW • SCALE • </div></div>
+
+<section id="services">
+  <div class="section-head">
+    <div class="num">01 / WHAT WE DO</div>
+    <div><div class="section-title">One partner.<br>Four growth engines.</div><p class="intro" style="margin-top:30px">We combine commercial thinking, creative execution and people solutions to help companies turn ideas into measurable growth.</p></div>
+  </div>
+  <div class="services">
+    <article class="card"><div class="card-num">01 / SALES & GROWTH</div><div><h3>Drive Sales.</h3><p>Sales activation, customer acquisition, market execution and growth initiatives designed around your business goals.</p></div><div class="arrow">↗</div></article>
+    <article class="card"><div class="card-num">02 / BRANDING & CREATIVE</div><div><h3>Build Brands.</h3><p>Logo, visual identity, product design, packaging, marketing materials and creative campaigns that make brands memorable.</p></div><div class="arrow">↗</div></article>
+    <article class="card"><div class="card-num">03 / TALENT SOLUTIONS</div><div><h3>Build Teams.</h3><p>Recruitment and manpower solutions that connect businesses with the right people for sales, operations, creative and support roles.</p></div><div class="arrow">↗</div></article>
+  </div>
+</section>
+
+<section id="about" class="statement">
+  <div>
+    <div class="num" style="color:#aaa;margin-bottom:35px">02 / OUR BELIEF</div>
+    <h2>WE DON'T JUST <em>THINK.</em><br>WE MAKE IT HAPPEN.</h2>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <div class="num">03 / HOW WE WORK</div>
+    <div><div class="section-title">From challenge<br>to momentum.</div></div>
+  </div>
+  <div class="process">
+    <div class="step"><strong>01</strong><h3>Discover</h3><p>Understand your business, market, customers and the problem worth solving.</p></div>
+    <div class="step"><strong>02</strong><h3>Design</h3><p>Turn insights into a clear strategy, creative direction and execution plan.</p></div>
+    <div class="step"><strong>03</strong><h3>Execute</h3><p>Put people, campaigns and creative assets into action — fast.</p></div>
+    <div class="step"><strong>04</strong><h3>Scale</h3><p>Measure what works, improve continuously and accelerate the next stage.</p></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-head">
+    <div class="num">04 / CAPABILITIES</div>
+    <div><div class="section-title">Built for<br>real-world growth.</div></div>
+  </div>
+  <div class="work">
+    <div class="workbox big"><h3>Sales<br>Activation</h3></div>
+    <div class="workbox"><h3>Brand<br>Identity</h3></div>
+    <div class="workbox"><h3>Talent<br>Supply</h3></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="num">05 / START A PROJECT</div>
+  <h2 style="margin-top:40px">LET'S BUILD<br>SOMETHING <span style="text-decoration:underline">BETTER.</span></h2>
+  <p>Have a business challenge, a brand that needs a new direction, or a team you need to build? Let's talk.</p>
+  <a class="btn" href="mailto:hello@sandbox.id">hello@sandbox.id →</a>
+</section>
+
+<footer>
+  <div><b>SandBox.</b><br><small>Business Growth Partner</small></div>
+  <small>© 2026 SandBox. All rights reserved.</small>
+</footer>
+
+<script>
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.navlinks').classList.remove('show')));
+</script>
+</body>
+</html>
