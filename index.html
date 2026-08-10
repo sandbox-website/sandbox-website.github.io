@@ -1,332 +1,192 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SandBox — Business Growth Partner</title>
-<meta name="description" content="SandBox helps businesses grow through Sales, Branding, Creative Solutions and Talent.">
+<meta name="description" content="SandBox — Business Growth, Branding, Creative and Talent Solutions.">
+<title>SandBox — Business Growth & Creative Solutions</title>
 <style>
-:root{
-  --bg:#f4f3ee; --ink:#111; --muted:#666; --line:#d8d6ce;
-  --accent:#b8ff35; --dark:#111; --white:#fff;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-a{color:inherit;text-decoration:none}
-.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;background:rgba(244,243,238,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.08)}
-.logo{font-size:25px;font-weight:900;letter-spacing:-1.5px}
-.navlinks{display:flex;gap:28px;font-size:14px;font-weight:700}
-.navlinks a:hover{opacity:.55}
-.menu{display:none;border:0;background:none;font-size:25px}
-.hero{min-height:100vh;padding:150px 5vw 70px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.kicker{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px}
-h1{font-size:clamp(64px,10.5vw,150px);line-height:.82;letter-spacing:-8px;max-width:1150px}
-h1 span{display:block}
-.hero .accent{color:#222;position:relative}
-.hero .accent:after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:12px;background:var(--accent);z-index:-1;transform:skew(-12deg)}
-.hero-bottom{display:flex;justify-content:space-between;align-items:end;margin-top:65px;max-width:1150px}
-.hero-copy{max-width:520px;font-size:19px}
-.btn{display:inline-block;background:var(--dark);color:white;padding:16px 24px;border-radius:100px;font-weight:800;margin-top:24px}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0002}
-.marquee{background:var(--accent);overflow:hidden;white-space:nowrap;border-top:2px solid #111;border-bottom:2px solid #111}
-.marquee div{display:inline-block;padding:13px 0;font-size:15px;font-weight:900;letter-spacing:1px;animation:scroll 20s linear infinite}
-@keyframes scroll{to{transform:translateX(-50%)}}
-section{padding:110px 5vw;border-bottom:1px solid var(--line)}
-.section-head{display:grid;grid-template-columns:1fr 2fr;gap:50px;margin-bottom:65px}
-.num{font-size:13px;font-weight:900;letter-spacing:2px}
-.section-title{font-size:clamp(42px,6vw,80px);line-height:.9;letter-spacing:-4px}
-.intro{font-size:21px;max-width:700px;color:#333}
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111;border:1px solid #111}
-.card{background:var(--bg);padding:38px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
-.card:hover{background:var(--accent)}
-.card-num{font-size:13px;font-weight:900}
-.card h3{font-size:34px;letter-spacing:-1.5px;margin-bottom:12px}
-.card p{color:#555}
-.card:hover p{color:#111}
-.arrow{font-size:28px}
-.statement{background:#111;color:#fff;min-height:65vh;display:flex;align-items:center}
-.statement h2{font-size:clamp(48px,8vw,110px);line-height:.9;letter-spacing:-6px;max-width:1050px}
-.statement em{color:var(--accent);font-style:normal}
-.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #111;border-left:1px solid #111}
-.step{padding:32px;border-right:1px solid #111;border-bottom:1px solid #111;min-height:250px}
-.step strong{font-size:13px;letter-spacing:2px}
-.step h3{font-size:29px;margin:45px 0 10px;letter-spacing:-1px}
-.step p{color:#666}
-.work{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
-.workbox{background:#ddd;min-height:300px;padding:30px;display:flex;align-items:end;position:relative;overflow:hidden}
-.workbox.big{min-height:520px;background:#181818;color:#fff}
-.workbox:nth-child(2){background:#d5ff80}
-.workbox:nth-child(3){background:#ddd}
-.workbox h3{font-size:42px;letter-spacing:-2px;position:relative;z-index:2}
-.workbox:before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:var(--accent);right:-60px;top:-60px;opacity:.8}
-.contact{background:var(--accent)}
-.contact h2{font-size:clamp(55px,9vw,125px);line-height:.82;letter-spacing:-7px;max-width:1000px}
-.contact p{font-size:20px;max-width:600px;margin-top:30px}
-.contact .btn{background:#111;color:#fff}
-footer{background:#111;color:#fff;padding:45px 5vw;display:flex;justify-content:space-between;gap:30px}
-footer small{color:#aaa}
-@media(max-width:800px){
- .navlinks{display:none}.menu{display:block}
- .hero{padding-top:130px}.hero-bottom{display:block}
- h1{letter-spacing:-5px}
- .section-head{grid-template-columns:1fr;gap:25px}
- .services,.process,.work{grid-template-columns:1fr}
- .workbox.big{min-height:360px}
- .card{min-height:280px}
- footer{flex-direction:column}
-}
-.client-category {
-  margin-top: 70px;
-}
-
-.category-title {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #111;
-}
-
-.category-title span {
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.category-title h3 {
-  font-size: 30px;
-  letter-spacing: -1px;
-}
-
-.client-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-left: 1px solid #111;
-}
-
-.client {
-  min-height: 150px;
-  padding: 30px;
-  border-right: 1px solid #111;
-  border-bottom: 1px solid #111;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: .25s;
-}
-
-.client:hover {
-  background: #b8ff35;
-}
-
-.client span {
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.client h4 {
-  font-size: 25px;
-  letter-spacing: -1px;
-}
-
-@media(max-width:800px) {
-  .client-list {
-    grid-template-columns: 1fr;
-  }
-
-  .category-title h3 {
-    font-size: 23px;
-  }
-}
+:root{--black:#111;--white:#f7f7f2;--acid:#c8ff35;--gray:#6f6f6a;--line:rgba(17,17,17,.18);--max:1240px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:var(--white);color:var(--black);line-height:1.5;overflow-x:hidden}a{color:inherit;text-decoration:none}
+.container{width:min(calc(100% - 48px),var(--max));margin:auto}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(247,247,242,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}.logo{font-size:28px;font-weight:900;letter-spacing:-1.8px}.logo span{color:var(--gray)}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:13px;font-weight:800;text-transform:uppercase}.nav-links a{position:relative;padding:8px 0}.nav-links a:after{content:"";position:absolute;left:0;bottom:2px;width:0;height:2px;background:#111;transition:.25s}.nav-links a:hover:after{width:100%}.menu-btn{display:none;border:0;background:none;font-size:26px;cursor:pointer}
+.hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 90px;background:var(--black);color:var(--white);position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:560px;height:560px;right:-180px;top:10%;border:1px solid rgba(200,255,53,.25);border-radius:50%;box-shadow:0 0 0 80px rgba(200,255,53,.025),0 0 0 160px rgba(200,255,53,.02)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:end;position:relative;z-index:2}.eyebrow{font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--acid);margin-bottom:24px}
+.hero h1{font-size:clamp(64px,10vw,148px);line-height:.84;letter-spacing:-8px;font-weight:900}.hero h1 em{font-style:normal;color:var(--acid)}.hero-copy{max-width:420px;font-size:18px;color:#cfcfca}.hero-actions{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border:1px solid var(--white);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.8px;transition:.25s}.btn:hover{background:var(--acid);color:var(--black);border-color:var(--acid);transform:translateY(-2px)}.btn-dark{background:var(--black);color:var(--white);border-color:var(--black)}.btn-acid{background:var(--acid);color:var(--black);border-color:var(--acid)}
+.hero-note{border-left:2px solid var(--acid);padding-left:22px;color:#b9b9b3;font-size:14px}.hero-note strong{display:block;color:var(--white);font-size:22px;margin-bottom:8px}
+section{padding:120px 0}.section-head{display:grid;grid-template-columns:.35fr 1fr;gap:60px;padding-bottom:55px;border-bottom:1px solid var(--line)}.section-number{font-size:12px;font-weight:900;letter-spacing:1px}.section-title{font-size:clamp(48px,7vw,92px);line-height:.9;letter-spacing:-5px;font-weight:900}.section-title em{font-style:normal;color:var(--gray)}.intro{max-width:700px;margin-top:30px;font-size:18px;color:#50504c}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:70px}.big-statement{font-size:clamp(34px,5vw,62px);line-height:.98;font-weight:900;letter-spacing:-3px}.about-copy{color:#50504c;font-size:17px}.about-copy p+p{margin-top:20px}
+.service-list{margin-top:70px;border-top:1px solid var(--black)}.service{display:grid;grid-template-columns:100px 1fr 80px;gap:30px;align-items:center;padding:35px 0;border-bottom:1px solid var(--line);transition:.25s}.service:hover{padding-left:18px;background:rgba(200,255,53,.45)}.service-no{font-size:12px;font-weight:900}.service h3{font-size:clamp(28px,4vw,54px);letter-spacing:-2px;line-height:1}.service p{max-width:650px;margin-top:10px;color:#60605b}.service-arrow{font-size:30px;text-align:right}
+.client-category{margin-top:75px}.category-heading{display:flex;align-items:baseline;gap:20px;border-bottom:2px solid var(--black);padding-bottom:18px}.category-heading span{font-size:12px;font-weight:900}.category-heading h3{font-size:clamp(24px,3vw,38px);letter-spacing:-1.5px}.client-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--black)}.client-card{min-height:170px;padding:28px;border-right:1px solid var(--black);border-bottom:1px solid var(--black);display:flex;flex-direction:column;justify-content:space-between;transition:.25s}.client-card:hover{background:var(--acid);transform:translateY(-3px)}.client-index{font-size:11px;font-weight:900}.client-name{font-size:clamp(22px,3vw,34px);line-height:1;font-weight:900;letter-spacing:-1.2px}.client-note{margin-top:15px;color:var(--gray);font-size:13px}
+.approach-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:70px;border-left:1px solid var(--black)}.approach-card{min-height:280px;padding:28px;border-right:1px solid var(--black);border-top:1px solid var(--black);border-bottom:1px solid var(--black)}.approach-card .num{font-size:12px;font-weight:900}.approach-card h3{margin-top:90px;font-size:28px;letter-spacing:-1px}.approach-card p{margin-top:12px;color:#60605b;font-size:14px}
+.contact{background:var(--acid)}.contact-grid{display:grid;grid-template-columns:1fr .7fr;gap:80px;align-items:end}.contact h2{font-size:clamp(56px,9vw,120px);line-height:.82;letter-spacing:-7px;font-weight:900}.contact h2 span{display:block}.contact-details{border-top:2px solid var(--black);padding-top:24px}.contact-label{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}.contact-link{font-size:25px;font-weight:900;display:block;margin-bottom:28px;word-break:break-word}
+footer{background:var(--black);color:var(--white);padding:35px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}.footer-logo{font-size:24px;font-weight:900;letter-spacing:-1px}.footer-copy{color:#aaa9a4;font-size:12px;text-align:right}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.nav-links{display:none;position:absolute;top:76px;left:0;width:100%;padding:24px;background:var(--white);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.nav-links.active{display:flex}.menu-btn{display:block}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:45px}.hero h1{letter-spacing:-5px}.section-head{grid-template-columns:1fr;gap:20px}.client-grid{grid-template-columns:repeat(2,1fr)}.approach-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.container{width:min(calc(100% - 30px),var(--max))}section{padding:80px 0}.hero{padding-top:120px}.hero h1{font-size:clamp(56px,18vw,92px);letter-spacing:-4px}.section-title{letter-spacing:-3px}.service{grid-template-columns:42px 1fr;gap:15px}.service-arrow{display:none}.client-grid,.approach-grid{grid-template-columns:1fr}.contact h2{letter-spacing:-4px}.footer-inner{align-items:flex-start;flex-direction:column}.footer-copy{text-align:left}}
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a class="logo" href="#">SandBox.</a>
-  <div class="navlinks"><a href="#clients">Our Clients.</a>
-    <a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a> href="#clients">Our Clients</a>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">SandBox<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#clients">Our Clients</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
-  <button class="menu" onclick="document.querySelector('.navlinks').classList.toggle('show')">☰</button>
 </nav>
 
-<header class="hero">
-  <div class="kicker">Business Growth Partner </div>
-  <h1>YOUR BUSINESS.<span>OUR <span class="accent">PLAYGROUND.</span></span></h1>
-  <div class="hero-bottom">
-    <div class="hero-copy">
-      SandBox helps businesses move faster through <b>Sales, Branding, Creative Solutions and Talent.</b>
-      We don't just advise. We build, execute and grow with you.
-      <br><a class="btn" href="#contact">Let's work together →</a>
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Business Growth · Branding · Creative · Talent</div>
+      <h1>BUILD.<br>GROW.<br><em>PLAY.</em></h1>
+      <div class="hero-actions">
+        <a class="btn btn-acid" href="#contact">Start a Project</a>
+        <a class="btn" href="#clients">View Our Clients</a>
+      </div>
+    </div>
+    <div class="hero-note reveal">
+      <strong>We turn ideas into momentum.</strong>
+      SandBox helps businesses accelerate sales, strengthen brand engagement,
+      create better products and connect with the right people.
     </div>
   </div>
-</header>
+</section>
 
-<div class="marquee"><div>BUILD • GROW • SCALE • BUILD • GROW • SCALE • BUILD • GROW • SCALE • BUILD • GROW • SCALE • </div></div>
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-number">01 / ABOUT</div>
+      <div>
+        <div class="section-title">Your business.<br><em>Our playground.</em></div>
+        <p class="intro">SandBox is a growth-focused creative partner helping businesses move faster through sales, branding, design, community and talent.</p>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="big-statement reveal">We don't just make things look good.<br><br>We make them <em>move.</em></div>
+      <div class="about-copy reveal">
+        <p>We believe good ideas deserve execution that creates measurable business impact.</p>
+        <p>From performance advertising and product branding to merchandise, music communities and workforce solutions, SandBox brings strategy, creativity and execution into one playground.</p>
+        <p>Our goal is simple: help our partners grow faster, engage deeper and build brands people remember.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="services">
-  <div class="section-head">
-    <div class="num">01 / WHAT WE DO</div>
-    <div><div class="section-title">One partner.<br>Four growth engines.</div><p class="intro" style="margin-top:30px">We combine commercial thinking, creative execution and people solutions to help companies turn ideas into measurable growth.</p></div>
-  </div>
-  <div class="services">
-    <article class="card"><div class="card-num">01 / SALES & GROWTH</div><div><h3>Drive Sales.</h3><p>Sales activation, customer acquisition, market execution and growth initiatives designed around your business goals.</p></div><div class="arrow">↗</div></article>
-    <article class="card"><div class="card-num">02 / BRANDING & CREATIVE</div><div><h3>Build Brands.</h3><p>Logo, visual identity, product design, packaging, marketing materials and creative campaigns that make brands memorable.</p></div><div class="arrow">↗</div></article>
-    <article class="card"><div class="card-num">03 / TALENT SOLUTIONS</div><div><h3>Build Teams.</h3><p>Recruitment and manpower solutions that connect businesses with the right people for sales, operations, creative and support roles.</p></div><div class="arrow">↗</div></article>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-number">02 / SERVICES</div>
+      <div>
+        <div class="section-title">What we<br><em>do.</em></div>
+        <p class="intro">Flexible solutions built around the real needs of your business.</p>
+      </div>
+    </div>
+    <div class="service-list">
+      <div class="service reveal"><div class="service-no">01</div><div><h3>Ads Specialist</h3><p>Performance advertising, campaign optimization, audience acquisition and growth-focused digital marketing.</p></div><div class="service-arrow">↗</div></div>
+      <div class="service reveal"><div class="service-no">02</div><div><h3>Branding & Creative</h3><p>Brand identity, logo development, product design, campaign visuals and creative direction that make brands stand out.</p></div><div class="service-arrow">↗</div></div>
+      <div class="service reveal"><div class="service-no">03</div><div><h3>Merchandise, Music & Community</h3><p>Merchandise development, official products, community engagement and creative support for artists, events and brands.</p></div><div class="service-arrow">↗</div></div>
+      <div class="service reveal"><div class="service-no">04</div><div><h3>Talent Solutions</h3><p>Workforce sourcing and talent support designed to help businesses find capable people and scale their teams.</p></div><div class="service-arrow">↗</div></div>
+    </div>
   </div>
 </section>
 
-<section id="about" class="statement">
-  <div>
-    <div class="num" style="color:#aaa;margin-bottom:35px">02 / OUR BELIEF</div>
-    <h2>WE DON'T JUST <em>THINK.</em><br>WE MAKE IT HAPPEN.</h2>
-  </div>
-</section>
-
-<section>
-  <div class="section-head">
-    <div class="num">03 / HOW WE WORK</div>
-    <div><div class="section-title">From challenge<br>to momentum.</div></div>
-  </div>
-  <div class="process">
-    <div class="step"><strong>01</strong><h3>Discover</h3><p>Understand your business, market, customers and the problem worth solving.</p></div>
-    <div class="step"><strong>02</strong><h3>Design</h3><p>Turn insights into a clear strategy, creative direction and execution plan.</p></div>
-    <div class="step"><strong>03</strong><h3>Execute</h3><p>Put people, campaigns and creative assets into action — fast.</p></div>
-    <div class="step"><strong>04</strong><h3>Scale</h3><p>Measure what works, improve continuously and accelerate the next stage.</p></div>
-  </div>
-</section>
 <section id="clients">
-
-  <div class="section-head">
-    <div class="num">04 / OUR CLIENTS</div>
-
-    <div>
-      <div class="section-title">
-        Trusted by<br>
-        brands & communities.
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-number">03 / OUR CLIENTS</div>
+      <div>
+        <div class="section-title">Trusted by<br><em>brands & communities.</em></div>
+        <p class="intro">A selection of businesses, brands, artists, communities and organizations we've had the opportunity to work with.</p>
       </div>
+    </div>
 
-      <p class="intro" style="margin-top:30px">
-        We work with businesses, brands, music communities
-        and organizations to create meaningful growth and engagement.
-      </p>
+    <div class="client-category reveal">
+      <div class="category-heading"><span>01</span><h3>Ads Specialist</h3></div>
+      <div class="client-grid">
+        <div class="client-card"><span class="client-index">01</span><div><div class="client-name">GLM Parfum</div><div class="client-note">Performance Ads</div></div></div>
+        <div class="client-card"><span class="client-index">02</span><div><div class="client-name">Erosia Construction</div><div class="client-note">Performance Ads</div></div></div>
+        <div class="client-card"><span class="client-index">03</span><div><div class="client-name">Dibangun.id</div><div class="client-note">Performance Ads</div></div></div>
+      </div>
+    </div>
+
+    <div class="client-category reveal">
+      <div class="category-heading"><span>02</span><h3>Merchandise · Music & Community</h3></div>
+      <div class="client-grid">
+        <div class="client-card"><span class="client-index">01</span><div class="client-name">Persebaya</div></div>
+        <div class="client-card"><span class="client-index">02</span><div class="client-name">Mentalita Fest</div></div>
+        <div class="client-card"><span class="client-index">03</span><div class="client-name">Sleman SKA</div></div>
+        <div class="client-card"><span class="client-index">04</span><div class="client-name">Serigala Malam</div></div>
+        <div class="client-card"><span class="client-index">05</span><div class="client-name">Rebellion Rose</div></div>
+        <div class="client-card"><span class="client-index">06</span><div class="client-name">Efek Rumah Kaca</div></div>
+        <div class="client-card"><span class="client-index">07</span><div class="client-name">Souljah x 8 Ball</div></div>
+        <div class="client-card"><span class="client-index">08</span><div class="client-name">Ikhsan Skuter</div></div>
+      </div>
     </div>
   </div>
-
-  <!-- ADS SPECIALIST -->
-  <div class="client-category">
-    <div class="category-title">
-      <span>01</span>
-      <h3>Ads Specialist</h3>
-    </div>
-
-    <div class="client-list">
-
-      <div class="client">
-        <span>01</span>
-        <h4>GLM Parfum</h4>
-      </div>
-
-      <div class="client">
-        <span>02</span>
-        <h4>Erosia Construction</h4>
-      </div>
-
-      <div class="client">
-        <span>03</span>
-        <h4>Dibangun.id</h4>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- MERCHANDISE -->
-  <div class="client-category">
-
-    <div class="category-title">
-      <span>02</span>
-      <h3>Merchandise · Official Music & Community</h3>
-    </div>
-
-    <div class="client-list">
-
-      <div class="client">
-        <span>01</span>
-        <h4>Persebaya</h4>
-      </div>
-
-      <div class="client">
-        <span>02</span>
-        <h4>Mentalita Fest</h4>
-      </div>
-
-      <div class="client">
-        <span>03</span>
-        <h4>Sleman SKA</h4>
-      </div>
-
-      <div class="client">
-        <span>04</span>
-        <h4>Serigala Malam</h4>
-      </div>
-
-      <div class="client">
-        <span>05</span>
-        <h4>Rebellion Rose</h4>
-      </div>
-
-      <div class="client">
-        <span>06</span>
-        <h4>Efek Rumah Kaca</h4>
-      </div>
-
-      <div class="client">
-        <span>07</span>
-        <h4>Souljah x 8 Ball</h4>
-      </div>
-
-      <div class="client">
-        <span>08</span>
-        <h4>Ikhsan Skuter</h4>
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
-<section id="work">
-  <div class="section-head">
-    <div class="num">04 / CAPABILITIES</div>
-    <div><div class="section-title">Built for<br>real-world growth.</div></div>
-  </div>
-  <div class="work">
-    <div class="workbox big"><h3>Sales<br>Activation</h3></div>
-    <div class="workbox"><h3>Brand<br>Identity</h3></div>
-    <div class="workbox"><h3>Talent<br>Supply</h3></div>
+
+<section id="approach">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-number">04 / APPROACH</div>
+      <div>
+        <div class="section-title">Think fast.<br><em>Move smart.</em></div>
+        <p class="intro">We keep our process simple, collaborative and focused on impact.</p>
+      </div>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card reveal"><div class="num">01</div><h3>Understand</h3><p>We start by understanding your business, audience, challenge and growth opportunity.</p></div>
+      <div class="approach-card reveal"><div class="num">02</div><h3>Design</h3><p>We build the strategy, creative direction and solution around the real problem.</p></div>
+      <div class="approach-card reveal"><div class="num">03</div><h3>Execute</h3><p>Ideas become campaigns, products, content, people and measurable actions.</p></div>
+      <div class="approach-card reveal"><div class="num">04</div><h3>Grow</h3><p>We learn from results and continuously improve what works.</p></div>
+    </div>
   </div>
 </section>
 
 <section id="contact" class="contact">
-  <div class="num">05 / START A PROJECT</div>
-  <h2 style="margin-top:40px">LET'S BUILD<br>SOMETHING <span style="text-decoration:underline">BETTER.</span></h2>
-  <p>Have a business challenge, a brand that needs a new direction, or a team you need to build? Let's talk.</p>
-  <a class="btn" href="mailto:gilangulvasulthonii@gmail.com">gilangulvasulthonii@gmail.com →</a>
+  <div class="container contact-grid">
+    <div class="reveal">
+      <div class="eyebrow" style="color:#111;">05 / CONTACT</div>
+      <h2>LET'S<br><span>BUILD.</span></h2>
+    </div>
+    <div class="contact-details reveal">
+      <!-- GANTI NOMOR DAN EMAIL DI BAWAH INI -->
+      <div class="contact-label">WhatsApp</div>
+      <a class="contact-link" href="https://wa.me/628978656079" target="_blank" rel="noopener">+62 897-8656-079</a>
+      <div class="contact-label">Email</div>
+      <a class="contact-link" href="mailto:gilangulvasulthonii@gmail.com">gilangulvasulthonii@gmail.com</a>
+      <a class="btn btn-dark" href="https://wa.me/628978656079?text=Hello%20SandBox%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Start a Conversation ↗</a>
+    </div>
+  </div>
 </section>
+</main>
 
 <footer>
-  <div><b>SandBox.</b><br><small>Business Growth Partner</small></div>
-   <div class="footer-contact">
-        <h3>Contact Us</h3>
-      <p>📱 +62 897-8656-079</p>
-        <p>✉️ gilangulvasulthoni@gmail.com</p>
-    </div>
-  <small>© 2026 SandBox. All rights reserved.</small>
+  <div class="container footer-inner">
+    <div class="footer-logo">SandBox.</div>
+    <div class="footer-copy">© 2026 SandBox. All Rights Reserved.<br>Business Growth · Branding · Creative · Talent</div>
+  </div>
 </footer>
 
 <script>
-document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.navlinks').classList.remove('show')));
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.addEventListener("click",()=>{navLinks.classList.toggle("active");menuBtn.textContent=navLinks.classList.contains("active")?"×":"☰";});
+document.querySelectorAll(".nav-links a").forEach(link=>link.addEventListener("click",()=>{navLinks.classList.remove("active");menuBtn.textContent="☰";}));
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}})},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
