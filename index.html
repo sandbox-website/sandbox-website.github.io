@@ -6,1146 +6,1348 @@
 
 <meta name="description" content="SandBox — Business Growth Partner for Sales, Branding, Creative, Community and Talent.">
 
-<title>SandBox — Business Growth Partner</title>
+<title>SandBox — Build. Grow. Play.</title>
 
 <style>
-
-/* =========================================================
-   SANDBOX V4
-   INTERACTIVE DIGITAL PLAYGROUND
-========================================================= */
-
-:root {
-  --black: #0B0B0F;
-  --black-2: #111116;
-  --white: #F8F8F5;
-  --purple: #7C3AED;
-  --purple-light: #A78BFA;
-  --blue: #2563EB;
-  --blue-light: #60A5FA;
-  --lime: #C8FF35;
-  --orange: #FF7A45;
-  --gray: #77777F;
-  --gray-light: #E9E9E4;
-  --line: rgba(255,255,255,.12);
-  --dark-line: rgba(11,11,15,.14);
-  --max: 1240px;
+:root{
+  --bg:#08080c;
+  --bg2:#101016;
+  --paper:#f5f5ef;
+  --paper2:#e9e9e2;
+  --text:#111116;
+  --muted:#777780;
+  --white:#fff;
+  --purple:#7c3aed;
+  --violet:#a855f7;
+  --blue:#2563eb;
+  --cyan:#38bdf8;
+  --lime:#c8ff35;
+  --orange:#ff7849;
+  --pink:#f43f5e;
+  --line:rgba(255,255,255,.12);
+  --darkline:rgba(17,17,22,.14);
+  --max:1240px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  scroll-behavior:smooth;
 }
 
-html {
-  scroll-behavior: smooth;
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--paper);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--white);
-  color: var(--black);
-  line-height: 1.5;
-  overflow-x: hidden;
+::selection{
+  background:var(--lime);
+  color:#08080c;
 }
 
-body::selection {
-  background: var(--purple);
-  color: white;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+button{
+  font-family:inherit;
 }
 
-button {
-  font-family: inherit;
+.container{
+  width:min(calc(100% - 40px),var(--max));
+  margin:auto;
 }
 
-.container {
-  width: min(calc(100% - 48px), var(--max));
-  margin: auto;
+/* ================= NAV ================= */
+
+.nav{
+  position:fixed;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  color:#fff;
+  background:rgba(8,8,12,.72);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+  transition:.35s;
 }
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  background: rgba(11,11,15,.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  color: white;
-  transition: .3s ease;
+.nav.scrolled{
+  background:rgba(8,8,12,.95);
+  box-shadow:0 15px 50px rgba(0,0,0,.3);
 }
 
-.nav.scrolled {
-  background: rgba(11,11,15,.96);
-  box-shadow: 0 10px 40px rgba(0,0,0,.2);
+.nav-inner{
+  min-height:76px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.nav-inner {
-  min-height: 76px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.logo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-2px;
 }
 
-.logo {
-  font-size: 29px;
-  font-weight: 900;
-  letter-spacing: -2px;
+.logo span{
+  color:var(--lime);
 }
 
-.logo span {
-  color: var(--lime);
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.nav-links a {
-  position: relative;
-  padding: 10px 0;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.75);
-  transition: .25s ease;
+.nav-links a{
+  position:relative;
+  padding:10px 0;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#aaaab2;
+  transition:.25s;
 }
 
 .nav-links a:hover,
-.nav-links a.active {
-  color: white;
+.nav-links a.active{
+  color:#fff;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--purple),
-    var(--blue),
-    var(--lime)
-  );
-  transition: .3s ease;
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:2px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--purple),var(--blue),var(--lime));
+  transition:.3s;
 }
 
 .nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
+.nav-links a.active::after{
+  width:100%;
 }
 
-.nav-links a[href="#pricing"] {
-  color: var(--lime);
+.nav-links a[href="#pricing"]{
+  color:var(--lime);
 }
 
-.menu-btn {
-  display: none;
-  border: 0;
-  background: transparent;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:27px;
+  cursor:pointer;
 }
 
+/* ================= HERO ================= */
 
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding: 150px 0 100px;
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
   background:
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(124,58,237,.30),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 60% 75%,
-      rgba(37,99,235,.20),
-      transparent 30%
-    ),
-    var(--black);
-  color: white;
+    radial-gradient(circle at 72% 25%,rgba(124,58,237,.28),transparent 27%),
+    radial-gradient(circle at 90% 75%,rgba(37,99,235,.18),transparent 28%),
+    var(--bg);
+  color:#fff;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  right: -180px;
-  top: 100px;
-  border-radius: 50%;
-  border: 1px solid rgba(200,255,53,.18);
+.grid-bg{
+  position:absolute;
+  inset:0;
+  opacity:.25;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+.hero-noise{
+  position:absolute;
+  inset:0;
+  opacity:.04;
+  background-image:
+    radial-gradient(#fff .7px,transparent .7px);
+  background-size:5px 5px;
+  pointer-events:none;
+}
+
+.hero-orb{
+  position:absolute;
+  right:8%;
+  top:17%;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);
   box-shadow:
-    0 0 0 70px rgba(124,58,237,.04),
-    0 0 0 150px rgba(37,99,235,.035),
-    0 0 0 230px rgba(200,255,53,.025);
-  animation: rotateOrb 25s linear infinite;
+    0 0 80px rgba(124,58,237,.12),
+    inset 0 0 80px rgba(37,99,235,.08);
+  animation:orbRotate 18s linear infinite;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  left: 15%;
-  top: 25%;
-  background: var(--lime);
-  border-radius: 50%;
-  box-shadow:
-    100px 180px 0 rgba(124,58,237,.8),
-    350px 90px 0 rgba(37,99,235,.8),
-    550px 350px 0 rgba(255,122,69,.7);
-  animation: floatingDots 6s ease-in-out infinite;
+.hero-orb::before{
+  content:"";
+  position:absolute;
+  width:130px;
+  height:130px;
+  left:-40px;
+  top:70px;
+  border-radius:50%;
+  background:var(--purple);
+  filter:blur(50px);
+  opacity:.6;
 }
 
-@keyframes rotateOrb {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-orb::after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-20px;
+  bottom:40px;
+  border-radius:50%;
+  background:var(--blue);
+  filter:blur(45px);
+  opacity:.65;
 }
 
-@keyframes floatingDots {
-  0%,100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+@keyframes orbRotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
 }
 
-.hero-grid {
-  position: relative;
-  z-index: 5;
-  display: grid;
-  grid-template-columns: 1.3fr .7fr;
-  gap: 80px;
-  align-items: end;
+.hero-inner{
+  position:relative;
+  z-index:5;
+  padding:150px 0 100px;
 }
 
-.eyebrow {
-  margin-bottom: 25px;
-  color: var(--lime);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+.hero-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:28px;
+  color:var(--lime);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.hero h1 {
-  font-size: clamp(70px, 11vw, 150px);
-  line-height: .79;
-  letter-spacing: -9px;
-  font-weight: 900;
+.hero-kicker::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--lime);
+  box-shadow:0 0 20px var(--lime);
 }
 
-.hero h1 em {
-  font-style: normal;
-  background: linear-gradient(
-    90deg,
-    var(--purple-light),
-    var(--blue-light),
+.hero-layout{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:70px;
+  align-items:end;
+}
+
+.hero h1{
+  font-size:clamp(75px,12vw,160px);
+  line-height:.76;
+  letter-spacing:-10px;
+  font-weight:900;
+}
+
+.hero h1 .gradient{
+  background:linear-gradient(
+    100deg,
+    var(--violet),
+    var(--cyan) 45%,
     var(--lime)
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-.hero-note {
-  border-left: 2px solid var(--lime);
-  padding-left: 23px;
-  color: #A9A9B1;
-  font-size: 14px;
+.hero-sub{
+  max-width:480px;
+  margin-top:35px;
+  color:#9c9ca5;
+  font-size:16px;
 }
 
-.hero-note strong {
-  display: block;
-  margin-bottom: 12px;
-  color: white;
-  font-size: 24px;
-  line-height: 1.1;
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:35px;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 40px;
+.btn{
+  min-height:52px;
+  padding:0 23px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid transparent;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.3s;
 }
 
-.btn {
-  min-height: 51px;
-  padding: 0 23px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid transparent;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: .9px;
-  text-transform: uppercase;
-  transition: .3s ease;
-  cursor: pointer;
+.btn:hover{
+  transform:translateY(-5px);
 }
 
-.btn:hover {
-  transform: translateY(-4px);
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(110deg,var(--purple),var(--blue));
+  box-shadow:0 15px 40px rgba(124,58,237,.25);
 }
 
-.btn-primary {
-  background: linear-gradient(
-    110deg,
-    var(--purple),
-    var(--blue)
-  );
-  color: white;
-  box-shadow: 0 10px 30px rgba(124,58,237,.25);
+.btn-primary:hover{
+  box-shadow:0 20px 55px rgba(124,58,237,.42);
 }
 
-.btn-primary:hover {
-  box-shadow:
-    0 15px 40px rgba(124,58,237,.4);
+.btn-outline{
+  color:#fff;
+  border-color:rgba(255,255,255,.25);
+  background:rgba(255,255,255,.03);
 }
 
-.btn-lime {
-  background: var(--lime);
-  color: var(--black);
+.btn-outline:hover{
+  background:#fff;
+  color:#111116;
 }
 
-.btn-outline {
-  border-color: rgba(255,255,255,.35);
-  color: white;
-  background: rgba(255,255,255,.03);
+.hero-side{
+  position:relative;
+  min-height:310px;
 }
 
-.btn-outline:hover {
-  background: white;
-  color: var(--black);
+.hero-card{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:330px;
+  padding:25px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(20px);
+  transform:rotate(3deg);
+  transition:.4s;
 }
 
-.btn-dark {
-  background: var(--black);
-  color: white;
+.hero-card:hover{
+  transform:rotate(0) translateY(-10px);
+  border-color:var(--lime);
 }
 
-
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-section {
-  padding: 120px 0;
+.hero-card-label{
+  color:#777780;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
 }
 
-.section-head {
-  display: grid;
-  grid-template-columns: .35fr 1fr;
-  gap: 60px;
-  padding-bottom: 55px;
-  border-bottom: 1px solid var(--dark-line);
+.hero-card h3{
+  margin-top:55px;
+  font-size:35px;
+  line-height:.9;
+  letter-spacing:-2px;
 }
 
-.section-number {
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
+.hero-card p{
+  margin-top:15px;
+  color:#9999a2;
+  font-size:12px;
 }
 
-.section-title {
-  font-size: clamp(50px, 7vw, 90px);
-  line-height: .88;
-  letter-spacing: -5px;
-  font-weight: 900;
+.hero-card-mark{
+  position:absolute;
+  right:22px;
+  top:22px;
+  width:34px;
+  height:34px;
+  border:1px solid var(--lime);
+  border-radius:50%;
 }
 
-.section-title em {
-  font-style: normal;
-  color: var(--gray);
+.hero-card-mark::after{
+  content:"";
+  position:absolute;
+  width:7px;
+  height:7px;
+  top:13px;
+  left:13px;
+  border-radius:50%;
+  background:var(--lime);
+  box-shadow:0 0 20px var(--lime);
 }
 
-.intro {
-  max-width: 700px;
-  margin-top: 28px;
-  color: #66666D;
-  font-size: 17px;
+/* ================= MARQUEE ================= */
+
+.marquee{
+  overflow:hidden;
+  background:var(--lime);
+  color:#111116;
+  border-top:1px solid #111;
+  border-bottom:1px solid #111;
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-#about {
-  background:
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(124,58,237,.06),
-      transparent 25%
-    ),
-    var(--white);
+.marquee-track{
+  width:max-content;
+  display:flex;
+  gap:50px;
+  padding:17px 0;
+  animation:marquee 25s linear infinite;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin-top: 70px;
+.marquee-item{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.big-statement {
-  font-size: clamp(35px, 5vw, 63px);
-  line-height: .98;
-  font-weight: 900;
-  letter-spacing: -3px;
+.marquee-item::after{
+  content:"✦";
+  margin-left:50px;
 }
 
-.big-statement em {
-  color: var(--purple);
-  font-style: normal;
+@keyframes marquee{
+  to{transform:translateX(-50%)}
 }
 
-.about-copy {
-  color: #606069;
-  font-size: 17px;
+/* ================= GENERAL ================= */
+
+section{
+  padding:120px 0;
 }
 
-.about-copy p + p {
-  margin-top: 20px;
+.section-head{
+  display:grid;
+  grid-template-columns:.3fr 1fr;
+  gap:60px;
+  padding-bottom:55px;
+  border-bottom:1px solid var(--darkline);
 }
 
-.about-copy strong {
-  color: var(--black);
+.section-number{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
 }
 
-
-/* =========================================================
-   SERVICES
-========================================================= */
-
-#services {
-  background: #F0F0EC;
+.section-title{
+  font-size:clamp(50px,7vw,92px);
+  line-height:.86;
+  letter-spacing:-6px;
+  font-weight:900;
 }
 
-.service-list {
-  margin-top: 70px;
-  border-top: 1px solid var(--black);
+.section-title em{
+  color:var(--muted);
+  font-style:normal;
 }
 
-.service {
-  display: grid;
-  grid-template-columns: 80px 1fr 70px;
-  gap: 30px;
-  align-items: center;
-  padding: 36px 0;
-  border-bottom: 1px solid var(--dark-line);
-  transition: .35s ease;
+.intro{
+  max-width:700px;
+  margin-top:28px;
+  color:#66666d;
+  font-size:17px;
 }
 
-.service:hover {
-  padding-left: 25px;
-  padding-right: 25px;
-  background: var(--black);
-  color: white;
+/* ================= WHY SANDBOX ================= */
+
+.why{
+  background:var(--paper);
 }
 
-.service:nth-child(1):hover {
-  box-shadow: inset 6px 0 0 var(--blue);
+.why-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  margin-top:70px;
 }
 
-.service:nth-child(2):hover {
-  box-shadow: inset 6px 0 0 var(--purple);
+.why-big{
+  font-size:clamp(38px,5vw,65px);
+  line-height:.95;
+  letter-spacing:-3px;
+  font-weight:900;
 }
 
-.service:nth-child(3):hover {
-  box-shadow: inset 6px 0 0 var(--lime);
+.why-big span{
+  color:var(--purple);
 }
 
-.service:nth-child(4):hover {
-  box-shadow: inset 6px 0 0 var(--orange);
+.why-copy{
+  color:#66666d;
+  font-size:17px;
 }
 
-.service-no {
-  font-size: 11px;
-  font-weight: 900;
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  margin-top:75px;
+  border-left:1px solid var(--darkline);
 }
 
-.service h3 {
-  font-size: clamp(28px, 4vw, 52px);
-  line-height: 1;
-  letter-spacing: -2px;
+.stat{
+  padding:28px;
+  border-right:1px solid var(--darkline);
+  border-top:1px solid var(--darkline);
+  border-bottom:1px solid var(--darkline);
 }
 
-.service p {
-  max-width: 680px;
-  margin-top: 12px;
-  color: #66666D;
+.stat-number{
+  font-size:55px;
+  font-weight:900;
+  letter-spacing:-3px;
 }
 
-.service:hover p {
-  color: #A5A5AD;
+.stat-label{
+  margin-top:5px;
+  color:#777780;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
 }
 
-.service-arrow {
-  font-size: 30px;
-  text-align: right;
-  transition: .3s;
+/* ================= PLAYGROUND ================= */
+
+.playground{
+  background:#ededE8;
 }
 
-.service:hover .service-arrow {
-  color: var(--lime);
-  transform: translate(5px,-5px);
+.playground-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  margin-top:70px;
+  border-left:1px solid #111116;
+  border-top:1px solid #111116;
 }
 
-
-/* =========================================================
-   PRICING
-========================================================= */
-
-.pricing {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 15% 80%,
-      rgba(124,58,237,.20),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 15%,
-      rgba(37,99,235,.18),
-      transparent 30%
-    ),
-    var(--black);
-  color: white;
+.play-card{
+  position:relative;
+  min-height:300px;
+  padding:30px;
+  overflow:hidden;
+  border-right:1px solid #111116;
+  border-bottom:1px solid #111116;
+  transition:.4s;
 }
 
-.pricing::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  right: -200px;
-  top: -200px;
-  border-radius: 50%;
-  border: 1px solid rgba(200,255,53,.15);
+.play-card::before{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:var(--accent);
+  filter:blur(70px);
+  opacity:0;
+  transition:.4s;
 }
 
-.pricing .section-head {
-  position: relative;
-  z-index: 2;
-  border-bottom-color: rgba(255,255,255,.15);
+.play-card:hover{
+  color:#fff;
+  background:#101016;
 }
 
-.pricing .section-number {
-  color: var(--lime);
+.play-card:hover::before{
+  opacity:.18;
 }
 
-.pricing .section-title em {
-  background: linear-gradient(
+.play-number,
+.play-card h3,
+.play-card p,
+.play-arrow{
+  position:relative;
+  z-index:2;
+}
+
+.play-number{
+  font-size:10px;
+  font-weight:900;
+}
+
+.play-card h3{
+  margin-top:90px;
+  font-size:40px;
+  line-height:.9;
+  letter-spacing:-2px;
+}
+
+.play-card p{
+  max-width:400px;
+  margin-top:15px;
+  color:#777780;
+  font-size:13px;
+}
+
+.play-card:hover p{
+  color:#aaaab2;
+}
+
+.play-arrow{
+  position:absolute;
+  right:28px;
+  bottom:22px;
+  font-size:28px;
+  transition:.3s;
+}
+
+.play-card:hover .play-arrow{
+  color:var(--accent);
+  transform:translate(5px,-5px);
+}
+
+.play-card:nth-child(1){--accent:var(--blue)}
+.play-card:nth-child(2){--accent:var(--purple)}
+.play-card:nth-child(3){--accent:var(--lime)}
+.play-card:nth-child(4){--accent:var(--orange)}
+
+/* ================= SERVICES ================= */
+
+.services{
+  background:#101016;
+  color:#fff;
+}
+
+.services .section-head{
+  border-color:rgba(255,255,255,.14);
+}
+
+.services .section-number{
+  color:var(--lime);
+}
+
+.services .section-title em{
+  background:linear-gradient(90deg,var(--violet),var(--cyan));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.services .intro{
+  color:#9999a2;
+}
+
+.service-list{
+  margin-top:65px;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+
+.service{
+  position:relative;
+  display:grid;
+  grid-template-columns:70px 1fr 60px;
+  gap:25px;
+  align-items:center;
+  padding:38px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  transition:.35s;
+}
+
+.service::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:0;
+  background:linear-gradient(90deg,var(--purple),transparent);
+  transition:.35s;
+}
+
+.service:hover{
+  padding-left:25px;
+  padding-right:20px;
+  background:rgba(255,255,255,.025);
+}
+
+.service:hover::before{
+  width:5px;
+}
+
+.service-no{
+  font-size:10px;
+  color:#777780;
+  font-weight:900;
+}
+
+.service h3{
+  font-size:clamp(30px,4vw,54px);
+  line-height:.95;
+  letter-spacing:-2px;
+}
+
+.service p{
+  max-width:680px;
+  margin-top:12px;
+  color:#777780;
+  font-size:13px;
+}
+
+.service-arrow{
+  font-size:30px;
+  text-align:right;
+  transition:.3s;
+}
+
+.service:hover .service-arrow{
+  color:var(--lime);
+  transform:translate(5px,-5px);
+}
+
+/* ================= PROCESS ================= */
+
+.process{
+  background:var(--paper2);
+}
+
+.process-line{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  margin-top:80px;
+}
+
+.process-line::before{
+  content:"";
+  position:absolute;
+  top:34px;
+  left:8%;
+  right:8%;
+  height:1px;
+  background:linear-gradient(
     90deg,
-    var(--purple-light),
-    var(--blue-light)
+    var(--purple),
+    var(--blue),
+    var(--lime),
+    var(--orange)
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
-.pricing .intro {
-  color: #A2A2AB;
+.process-item{
+  position:relative;
+  z-index:2;
+  text-align:center;
 }
 
-.pricing-grid {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 14px;
-  margin-top: 70px;
+.process-dot{
+  width:68px;
+  height:68px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  border:1px solid #111116;
+  background:var(--paper2);
+  font-size:10px;
+  font-weight:900;
+  transition:.35s;
 }
 
-.price-card {
-  min-height: 480px;
-  position: relative;
-  overflow: hidden;
-  padding: 30px;
-  background: rgba(255,255,255,.045);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(15px);
-  transition: .4s ease;
+.process-item:hover .process-dot{
+  color:#fff;
+  background:#111116;
+  border-color:var(--lime);
+  box-shadow:0 0 35px rgba(200,255,53,.25);
 }
 
-.price-card::before {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  top: -90px;
-  right: -90px;
-  border-radius: 50%;
-  background: var(--accent);
-  filter: blur(60px);
-  opacity: .15;
-  transition: .4s;
+.process-item h3{
+  margin-top:25px;
+  font-size:19px;
 }
 
-.price-card:hover {
-  transform: translateY(-12px);
-  border-color: var(--accent);
-  background: rgba(255,255,255,.07);
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.3);
+.process-item p{
+  max-width:150px;
+  margin:10px auto 0;
+  color:#777780;
+  font-size:11px;
 }
 
-.price-card:hover::before {
-  opacity: .35;
-}
+/* ================= PRICING ================= */
 
-.price-card:nth-child(1) {
-  --accent: var(--blue);
-}
-
-.price-card:nth-child(2) {
-  --accent: var(--purple);
-}
-
-.price-card:nth-child(3) {
-  --accent: var(--lime);
-}
-
-.price-card:nth-child(4) {
-  --accent: var(--orange);
-}
-
-.price-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.price-number {
-  font-size: 10px;
-  font-weight: 900;
-  color: #A6A6AE;
-}
-
-.price-tag {
-  padding: 5px 8px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 8px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.price-card h3 {
-  position: relative;
-  z-index: 2;
-  margin-top: 75px;
-  font-size: clamp(25px,3vw,39px);
-  line-height: .94;
-  letter-spacing: -1.5px;
-}
-
-.price-description {
-  position: relative;
-  z-index: 2;
-  margin-top: 20px;
-  color: #9999A3;
-  font-size: 13px;
-}
-
-.price-bottom {
-  position: absolute;
-  left: 30px;
-  right: 30px;
-  bottom: 30px;
-}
-
-.price-label {
-  color: #85858E;
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.price-value {
-  margin-top: 4px;
-  color: var(--accent);
-  font-size: 23px;
-  font-weight: 900;
-}
-
-.price-btn {
-  width: 100%;
-  margin-top: 18px;
-  border-color: rgba(255,255,255,.15);
-  color: white;
-}
-
-.price-btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--black);
-}
-
-.pricing-note {
-  position: relative;
-  z-index: 2;
-  margin-top: 22px;
-  color: #66666F;
-  font-size: 10px;
-}
-
-
-/* =========================================================
-   CLIENTS
-========================================================= */
-
-#clients {
-  background: var(--white);
-}
-
-.client-category {
-  margin-top: 70px;
-}
-
-.category-heading {
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  padding-bottom: 17px;
-  border-bottom: 2px solid var(--black);
-}
-
-.category-heading span {
-  font-size: 10px;
-  font-weight: 900;
-}
-
-.category-heading h3 {
-  font-size: 30px;
-  letter-spacing: -1px;
-}
-
-.client-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  border-left: 1px solid var(--black);
-}
-
-.client-card {
-  min-height: 170px;
-  padding: 27px;
-  border-right: 1px solid var(--black);
-  border-bottom: 1px solid var(--black);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: .3s ease;
-}
-
-.client-card:hover {
-  background: var(--black);
-  color: white;
-  transform: translateY(-5px);
-}
-
-.client-index {
-  font-size: 9px;
-  font-weight: 900;
-}
-
-.client-name {
-  font-size: clamp(22px,3vw,34px);
-  line-height: .95;
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.client-card:hover .client-name {
-  color: var(--lime);
-}
-
-.client-note {
-  margin-top: 10px;
-  color: var(--gray);
-  font-size: 11px;
-}
-
-
-/* =========================================================
-   APPROACH
-========================================================= */
-
-#approach {
+.pricing{
+  position:relative;
+  overflow:hidden;
+  color:#fff;
   background:
-    linear-gradient(
-      135deg,
-      #F8F8F5 0%,
-      #EFEFF4 100%
-    );
+    radial-gradient(circle at 10% 80%,rgba(124,58,237,.25),transparent 28%),
+    radial-gradient(circle at 90% 15%,rgba(37,99,235,.22),transparent 30%),
+    #08080c;
 }
 
-.approach-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  margin-top: 70px;
-  border-left: 1px solid var(--black);
+.pricing .section-head{
+  border-color:rgba(255,255,255,.13);
 }
 
-.approach-card {
-  min-height: 300px;
-  padding: 28px;
-  border-top: 1px solid var(--black);
-  border-right: 1px solid var(--black);
-  border-bottom: 1px solid var(--black);
-  transition: .3s ease;
+.pricing .section-number{
+  color:var(--lime);
 }
 
-.approach-card:nth-child(1):hover {
-  background: rgba(37,99,235,.1);
+.pricing .section-title em{
+  background:linear-gradient(90deg,var(--violet),var(--cyan),var(--lime));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-.approach-card:nth-child(2):hover {
-  background: rgba(124,58,237,.1);
+.pricing .intro{
+  color:#92929b;
 }
 
-.approach-card:nth-child(3):hover {
-  background: rgba(200,255,53,.25);
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:70px;
 }
 
-.approach-card:nth-child(4):hover {
-  background: rgba(255,122,69,.12);
+.price-card{
+  --accent:var(--purple);
+  position:relative;
+  min-height:500px;
+  padding:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(18px);
+  transition:.4s;
 }
 
-.approach-card .number {
-  font-size: 10px;
-  font-weight: 900;
+.price-card:nth-child(1){--accent:var(--blue)}
+.price-card:nth-child(2){--accent:var(--purple)}
+.price-card:nth-child(3){--accent:var(--lime)}
+.price-card:nth-child(4){--accent:var(--orange)}
+
+.price-card::after{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  left:var(--mx,50%);
+  top:var(--my,50%);
+  transform:translate(-50%,-50%);
+  background:var(--accent);
+  filter:blur(90px);
+  opacity:.08;
+  pointer-events:none;
+  transition:.15s;
 }
 
-.approach-card h3 {
-  margin-top: 90px;
-  font-size: 29px;
-  letter-spacing: -1px;
+.price-card:hover{
+  transform:translateY(-12px);
+  border-color:var(--accent);
+  box-shadow:0 30px 70px rgba(0,0,0,.3);
 }
 
-.approach-card p {
-  margin-top: 12px;
-  color: #66666D;
-  font-size: 13px;
+.price-top{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
 }
 
+.price-number{
+  color:#777780;
+  font-size:9px;
+  font-weight:900;
+}
 
-/* =========================================================
-   CONTACT
-========================================================= */
+.price-tag{
+  padding:5px 8px;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  font-size:8px;
+  font-weight:900;
+  text-transform:uppercase;
+}
 
-.contact {
-  position: relative;
-  overflow: hidden;
+.price-card h3{
+  position:relative;
+  z-index:2;
+  margin-top:85px;
+  font-size:37px;
+  line-height:.9;
+  letter-spacing:-2px;
+}
+
+.price-description{
+  position:relative;
+  z-index:2;
+  margin-top:20px;
+  color:#9999a2;
+  font-size:12px;
+}
+
+.price-bottom{
+  position:absolute;
+  z-index:2;
+  left:28px;
+  right:28px;
+  bottom:28px;
+}
+
+.price-label{
+  color:#777780;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.price-value{
+  margin-top:5px;
+  color:var(--accent);
+  font-size:22px;
+  font-weight:900;
+}
+
+.price-btn{
+  width:100%;
+  margin-top:17px;
+  color:#fff;
+  border-color:rgba(255,255,255,.15);
+}
+
+.price-btn:hover{
+  background:var(--accent);
+  color:#111116;
+  border-color:var(--accent);
+}
+
+/* ================= CLIENTS ================= */
+
+.clients{
+  background:var(--paper);
+}
+
+.client-category{
+  margin-top:65px;
+}
+
+.category-title{
+  display:flex;
+  align-items:baseline;
+  gap:18px;
+  padding-bottom:17px;
+  border-bottom:2px solid #111116;
+}
+
+.category-title span{
+  font-size:9px;
+  font-weight:900;
+}
+
+.category-title h3{
+  font-size:28px;
+}
+
+.client-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-left:1px solid #111116;
+}
+
+.client{
+  min-height:170px;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border-right:1px solid #111116;
+  border-bottom:1px solid #111116;
+  transition:.3s;
+}
+
+.client:hover{
+  color:#fff;
+  background:#111116;
+  transform:translateY(-5px);
+}
+
+.client-index{
+  font-size:9px;
+  font-weight:900;
+}
+
+.client-name{
+  font-size:31px;
+  line-height:.9;
+  letter-spacing:-1.5px;
+  font-weight:900;
+}
+
+.client:hover .client-name{
+  color:var(--lime);
+}
+
+.client-note{
+  margin-top:9px;
+  color:#777780;
+  font-size:10px;
+}
+
+/* ================= WHY YOGYA ================= */
+
+.yogya{
+  position:relative;
+  overflow:hidden;
+  color:#fff;
   background:
-    radial-gradient(
-      circle at 90% 10%,
-      rgba(124,58,237,.45),
-      transparent 30%
-    ),
-    linear-gradient(
-      120deg,
-      var(--lime),
-      #D7FF6A
-    );
+    radial-gradient(circle at 75% 30%,rgba(124,58,237,.3),transparent 25%),
+    #111116;
 }
 
-.contact::after {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  right: -120px;
-  bottom: -150px;
-  border-radius: 50%;
-  border: 1px solid rgba(11,11,15,.2);
+.yogya-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
 }
 
-.contact-grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr .7fr;
-  gap: 80px;
-  align-items: end;
+.yogya .section-number{
+  color:var(--lime);
 }
 
-.contact h2 {
-  font-size: clamp(60px,9vw,120px);
-  line-height: .82;
-  letter-spacing: -7px;
+.yogya h2{
+  margin-top:25px;
+  font-size:clamp(55px,8vw,105px);
+  line-height:.82;
+  letter-spacing:-6px;
 }
 
-.contact .eyebrow {
-  color: var(--black);
+.yogya h2 span{
+  color:var(--lime);
 }
 
-.contact-details {
-  padding-top: 24px;
-  border-top: 2px solid var(--black);
+.yogya-copy{
+  color:#9999a2;
+  font-size:16px;
 }
 
-.contact-label {
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.yogya-points{
+  margin-top:30px;
+  display:grid;
+  gap:10px;
 }
 
-.contact-link {
-  display: block;
-  margin: 7px 0 27px;
-  font-size: 21px;
-  font-weight: 900;
-  word-break: break-word;
-  transition: .2s;
+.yogya-point{
+  padding:17px 20px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.035);
+  transition:.3s;
 }
 
-.contact-link:hover {
-  color: var(--purple);
+.yogya-point:hover{
+  border-color:var(--lime);
+  transform:translateX(8px);
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-  padding: 35px 0;
-  background: var(--black);
-  color: white;
+.yogya-point strong{
+  color:#fff;
 }
 
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.yogya-point span{
+  display:block;
+  margin-top:4px;
+  color:#777780;
+  font-size:11px;
 }
 
-.footer-logo {
-  font-size: 24px;
-  font-weight: 900;
+/* ================= CONTACT ================= */
+
+.contact{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(120deg,var(--lime),#e6ff8a);
 }
 
-.footer-logo span {
-  color: var(--lime);
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr .7fr;
+  gap:80px;
+  align-items:end;
 }
 
-.footer-copy {
-  color: #777780;
-  font-size: 10px;
-  text-align: right;
+.contact h2{
+  font-size:clamp(65px,10vw,130px);
+  line-height:.78;
+  letter-spacing:-8px;
 }
 
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
+.contact-details{
+  padding-top:22px;
+  border-top:2px solid #111116;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.contact-label{
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
 }
 
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 1050px) {
-
-  .pricing-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .approach-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
+.contact-link{
+  display:block;
+  margin:7px 0 27px;
+  font-size:20px;
+  font-weight:900;
+  word-break:break-word;
+  transition:.2s;
 }
 
-
-@media (max-width: 850px) {
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 76px;
-    width: 100%;
-    padding: 25px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    background: rgba(11,11,15,.97);
-    border-bottom: 1px solid rgba(255,255,255,.1);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-
-  .hero-grid,
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-grid {
-    gap: 60px;
-  }
-
-  .section-head {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .client-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
+.contact-link:hover{
+  color:var(--purple);
 }
 
+/* ================= FOOTER ================= */
 
-@media (max-width: 600px) {
-
-  .container {
-    width: calc(100% - 30px);
-  }
-
-  section {
-    padding: 85px 0;
-  }
-
-  .hero {
-    padding-top: 125px;
-  }
-
-  .hero h1 {
-    font-size: 19vw;
-    letter-spacing: -5px;
-  }
-
-  .section-title {
-    letter-spacing: -3px;
-  }
-
-  .service {
-    grid-template-columns: 45px 1fr;
-    gap: 15px;
-  }
-
-  .service-arrow {
-    display: none;
-  }
-
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .price-card {
-    min-height: 430px;
-  }
-
-  .client-grid,
-  .approach-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .category-heading {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .footer-copy {
-    text-align: left;
-  }
-
+footer{
+  padding:35px 0;
+  background:#08080c;
+  color:#fff;
 }
 
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+.footer-logo{
+  font-size:24px;
+  font-weight:900;
+}
 
-@media (prefers-reduced-motion: reduce) {
+.footer-logo span{
+  color:var(--lime);
+}
+
+.footer-copy{
+  color:#66666f;
+  font-size:9px;
+  text-align:right;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1050px){
+
+  .pricing-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .process-line{
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+  }
+
+  .process-line::before{
+    display:none;
+  }
+}
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    left:0;
+    top:76px;
+    width:100%;
+    padding:25px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    background:rgba(8,8,12,.97);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero-layout,
+  .why-grid,
+  .yogya-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-side{
+    min-height:260px;
+  }
+
+  .hero-card{
+    left:0;
+    right:auto;
+  }
+
+  .section-head{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .playground-grid{
+    grid-template-columns:1fr;
+  }
+
+  .client-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+
+  .container{
+    width:calc(100% - 30px);
+  }
+
+  section{
+    padding:85px 0;
+  }
+
+  .hero-inner{
+    padding-top:125px;
+  }
+
+  .hero h1{
+    font-size:19vw;
+    letter-spacing:-6px;
+  }
+
+  .hero-orb{
+    width:300px;
+    height:300px;
+    right:-100px;
+    top:35%;
+  }
+
+  .hero-card{
+    width:100%;
+  }
+
+  .section-title{
+    letter-spacing:-4px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stat{
+    padding:20px;
+  }
+
+  .stat-number{
+    font-size:42px;
+  }
+
+  .service{
+    grid-template-columns:45px 1fr;
+  }
+
+  .service-arrow{
+    display:none;
+  }
+
+  .process-line{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .pricing-grid{
+    grid-template-columns:1fr;
+  }
+
+  .price-card{
+    min-height:440px;
+  }
+
+  .client-grid{
+    grid-template-columns:1fr;
+  }
+
+  .category-title{
+    flex-direction:column;
+    gap:5px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+  }
+
+  .footer-copy{
+    text-align:left;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
 
   *,
   *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
+  *::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
   }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =======================================================
-     NAVIGATION
-======================================================== -->
+<!-- ================= NAV ================= -->
 
 <nav class="nav" id="navbar">
 
@@ -1155,40 +1357,16 @@ footer {
       SandBox<span>.</span>
     </a>
 
-    <button
-      class="menu-btn"
-      id="menuBtn"
-      aria-label="Open menu"
-    >
-      ☰
-    </button>
+    <button class="menu-btn" id="menuBtn">☰</button>
 
     <div class="nav-links" id="navLinks">
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#services">
-        Services
-      </a>
-
-      <a href="#pricing">
-        Pricing
-      </a>
-
-      <a href="#clients">
-        Our Clients
-      </a>
-
-      <a href="#approach">
-        Approach
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
+      <a href="#about">About</a>
+      <a href="#playground">Solutions</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#clients">Our Clients</a>
+      <a href="#process">Approach</a>
+      <a href="#contact">Contact</a>
     </div>
 
   </div>
@@ -1196,60 +1374,75 @@ footer {
 </nav>
 
 
-
 <main id="home">
 
-
-<!-- =======================================================
-     HERO
-======================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-  <div class="container hero-grid">
+  <div class="grid-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-orb"></div>
 
-    <div class="reveal">
+  <div class="container hero-inner">
 
-      <div class="eyebrow">
-        Business Growth · Branding · Creative · Talent
-      </div>
-
-      <h1>
-        BUILD.<br>
-        GROW.<br>
-        <em>PLAY.</em>
-      </h1>
-
-      <div class="hero-actions">
-
-        <a
-          href="#contact"
-          class="btn btn-primary"
-        >
-          Start a Project
-        </a>
-
-        <a
-          href="#pricing"
-          class="btn btn-outline"
-        >
-          View Pricing
-        </a>
-
-      </div>
-
+    <div class="hero-kicker reveal">
+      Business Growth · Creative · Talent · Community
     </div>
 
+    <div class="hero-layout">
 
-    <div class="hero-note reveal">
+      <div class="reveal">
 
-      <strong>
-        We turn ideas into momentum.
-      </strong>
+        <h1>
+          BUILD.<br>
+          GROW.<br>
+          <span class="gradient">PLAY.</span>
+        </h1>
 
-      SandBox helps businesses accelerate sales,
-      strengthen brand engagement, create better
-      products and connect with the right people.
+        <p class="hero-sub">
+          SandBox helps ambitious businesses turn ideas
+          into brands, campaigns, communities and growth.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#contact" class="btn btn-primary magnetic">
+            Start a Project ↗
+          </a>
+
+          <a href="#pricing" class="btn btn-outline magnetic">
+            Explore Pricing
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-side reveal">
+
+        <div class="hero-card">
+
+          <div class="hero-card-mark"></div>
+
+          <div class="hero-card-label">
+            Welcome to the playground
+          </div>
+
+          <h3>
+            Your business.<br>
+            Our playground.
+          </h3>
+
+          <p>
+            Strategy, creative execution and people —
+            connected to help your business move.
+          </p>
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -1258,12 +1451,29 @@ footer {
 </section>
 
 
+<!-- ================= MARQUEE ================= -->
 
-<!-- =======================================================
-     ABOUT
-======================================================== -->
+<div class="marquee">
 
-<section id="about">
+  <div class="marquee-track">
+
+    <div class="marquee-item">BUILD BETTER</div>
+    <div class="marquee-item">GROW FASTER</div>
+    <div class="marquee-item">THINK DIFFERENT</div>
+    <div class="marquee-item">CREATE IMPACT</div>
+    <div class="marquee-item">BUILD BETTER</div>
+    <div class="marquee-item">GROW FASTER</div>
+    <div class="marquee-item">THINK DIFFERENT</div>
+    <div class="marquee-item">CREATE IMPACT</div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="why">
 
   <div class="container">
 
@@ -1276,14 +1486,13 @@ footer {
       <div>
 
         <div class="section-title">
-          Your business.<br>
-          <em>Our playground.</em>
+          Business is<br>
+          <em>a playground.</em>
         </div>
 
         <p class="intro">
-          SandBox is a growth-focused creative partner
-          helping businesses move faster through sales,
-          branding, design, community and talent.
+          We believe growth happens when strategy,
+          creativity and execution work together.
         </p>
 
       </div>
@@ -1291,40 +1500,168 @@ footer {
     </div>
 
 
-    <div class="about-grid">
+    <div class="why-grid">
 
-      <div class="big-statement reveal">
+      <div class="why-big reveal">
+        Don't just build
+        something <span>beautiful.</span><br><br>
+        Build something
+        that <span>moves.</span>
+      </div>
 
-        We don't just make things
-        look good.<br><br>
+      <div class="why-copy reveal">
 
-        We make them
-        <em>move.</em>
+        <p>
+          SandBox is a business growth partner built
+          around one simple idea:
+          <strong>make business more exciting.</strong>
+        </p>
+
+        <br>
+
+        <p>
+          We combine performance marketing, branding,
+          creative production, merchandise, community
+          and talent solutions to help businesses
+          move from idea to impact.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="stats">
+
+      <div class="stat reveal">
+        <div class="stat-number counter" data-target="4">0</div>
+        <div class="stat-label">Core Solutions</div>
+      </div>
+
+      <div class="stat reveal">
+        <div class="stat-number counter" data-target="11">0</div>
+        <div class="stat-label">Clients & Communities</div>
+      </div>
+
+      <div class="stat reveal">
+        <div class="stat-number counter" data-target="3">0</div>
+        <div class="stat-label">Growth Channels</div>
+      </div>
+
+      <div class="stat reveal">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Possibilities</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SOLUTIONS ================= -->
+
+<section id="playground" class="playground">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div class="section-number">
+        02 / SOLUTIONS
+      </div>
+
+      <div>
+
+        <div class="section-title">
+          What can we<br>
+          <em>build together?</em>
+        </div>
+
+        <p class="intro">
+          Choose the challenge. We'll build the solution.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="playground-grid">
+
+      <div class="play-card reveal">
+
+        <div class="play-number">01 / GROW</div>
+
+        <h3>
+          Grow<br>
+          Your Sales
+        </h3>
+
+        <p>
+          Performance campaigns and acquisition
+          strategies designed around measurable growth.
+        </p>
+
+        <div class="play-arrow">↗</div>
 
       </div>
 
 
-      <div class="about-copy reveal">
+      <div class="play-card reveal">
+
+        <div class="play-number">02 / BRAND</div>
+
+        <h3>
+          Build<br>
+          Your Brand
+        </h3>
 
         <p>
-          We believe good ideas deserve execution
-          that creates measurable business impact.
+          Identity, product design and creative systems
+          that make your business memorable.
         </p>
 
-        <p>
-          From performance advertising and product
-          branding to merchandise, music communities
-          and workforce solutions, SandBox brings
-          strategy, creativity and execution into
-          one playground.
-        </p>
+        <div class="play-arrow">↗</div>
+
+      </div>
+
+
+      <div class="play-card reveal">
+
+        <div class="play-number">03 / COMMUNITY</div>
+
+        <h3>
+          Create<br>
+          Engagement
+        </h3>
 
         <p>
-          Our goal is simple:
-          help our partners grow faster,
-          engage deeper and build brands
-          people remember.
+          Merchandise, music, events and community
+          experiences that bring people closer to brands.
         </p>
+
+        <div class="play-arrow">↗</div>
+
+      </div>
+
+
+      <div class="play-card reveal">
+
+        <div class="play-number">04 / PEOPLE</div>
+
+        <h3>
+          Find<br>
+          Great People
+        </h3>
+
+        <p>
+          Talent sourcing and workforce solutions
+          that help businesses build stronger teams.
+        </p>
+
+        <div class="play-arrow">↗</div>
 
       </div>
 
@@ -1335,31 +1672,28 @@ footer {
 </section>
 
 
+<!-- ================= SERVICES ================= -->
 
-<!-- =======================================================
-     SERVICES
-======================================================== -->
-
-<section id="services">
+<section id="services" class="services">
 
   <div class="container">
 
     <div class="section-head reveal">
 
       <div class="section-number">
-        02 / SERVICES
+        03 / SERVICES
       </div>
 
       <div>
 
         <div class="section-title">
-          What we<br>
-          <em>do.</em>
+          We make<br>
+          <em>things happen.</em>
         </div>
 
         <p class="intro">
-          Flexible solutions built around the real
-          needs of your business.
+          Flexible services designed around real business
+          problems — not generic packages.
         </p>
 
       </div>
@@ -1369,114 +1703,72 @@ footer {
 
     <div class="service-list">
 
-
       <div class="service reveal">
 
-        <div class="service-no">
-          01
-        </div>
+        <div class="service-no">01</div>
 
         <div>
-
-          <h3>
-            Ads Specialist
-          </h3>
-
+          <h3>Ads Specialist</h3>
           <p>
-            Performance advertising, campaign optimization,
-            audience acquisition and growth-focused
-            digital marketing.
+            Performance advertising, audience acquisition,
+            campaign optimization and growth strategy.
           </p>
-
         </div>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+        <div class="service-arrow">↗</div>
 
       </div>
 
 
       <div class="service reveal">
 
-        <div class="service-no">
-          02
-        </div>
+        <div class="service-no">02</div>
 
         <div>
-
-          <h3>
-            Branding & Creative
-          </h3>
-
+          <h3>Branding & Creative</h3>
           <p>
-            Brand identity, logo development, product design,
-            campaign visuals and creative direction that
-            make brands stand out.
+            Brand identity, logo, product design,
+            campaign visuals and creative direction.
           </p>
-
         </div>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+        <div class="service-arrow">↗</div>
 
       </div>
 
 
       <div class="service reveal">
 
-        <div class="service-no">
-          03
-        </div>
+        <div class="service-no">03</div>
 
         <div>
-
-          <h3>
-            Merchandise, Music & Community
-          </h3>
-
+          <h3>Merchandise, Music & Community</h3>
           <p>
-            Merchandise development, official products,
-            community engagement and creative support
-            for artists, events and brands.
+            Merchandise development, community activation,
+            music projects and creative experiences.
           </p>
-
         </div>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+        <div class="service-arrow">↗</div>
 
       </div>
 
 
       <div class="service reveal">
 
-        <div class="service-no">
-          04
-        </div>
+        <div class="service-no">04</div>
 
         <div>
-
-          <h3>
-            Talent Solutions
-          </h3>
-
+          <h3>Talent Solutions</h3>
           <p>
-            Workforce sourcing and talent support designed
-            to help businesses find capable people
-            and scale their teams.
+            Talent sourcing, screening and workforce
+            support for growing businesses.
           </p>
-
         </div>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+        <div class="service-arrow">↗</div>
 
       </div>
-
 
     </div>
 
@@ -1485,10 +1777,74 @@ footer {
 </section>
 
 
+<!-- ================= PROCESS ================= -->
 
-<!-- =======================================================
-     PRICING
-======================================================== -->
+<section id="process" class="process">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div class="section-number">
+        04 / APPROACH
+      </div>
+
+      <div>
+
+        <div class="section-title">
+          Idea to<br>
+          <em>impact.</em>
+        </div>
+
+        <p class="intro">
+          A simple process designed to keep momentum high.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="process-line">
+
+      <div class="process-item reveal">
+        <div class="process-dot">01</div>
+        <h3>IDEA</h3>
+        <p>Understand the opportunity.</p>
+      </div>
+
+      <div class="process-item reveal">
+        <div class="process-dot">02</div>
+        <h3>STRATEGY</h3>
+        <p>Find the smartest direction.</p>
+      </div>
+
+      <div class="process-item reveal">
+        <div class="process-dot">03</div>
+        <h3>CREATIVE</h3>
+        <p>Turn strategy into something people notice.</p>
+      </div>
+
+      <div class="process-item reveal">
+        <div class="process-dot">04</div>
+        <h3>EXECUTION</h3>
+        <p>Make it happen.</p>
+      </div>
+
+      <div class="process-item reveal">
+        <div class="process-dot">05</div>
+        <h3>GROWTH</h3>
+        <p>Learn, optimize and scale.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRICING ================= -->
 
 <section id="pricing" class="pricing">
 
@@ -1497,19 +1853,18 @@ footer {
     <div class="section-head reveal">
 
       <div class="section-number">
-        03 / PRICING
+        05 / PRICING
       </div>
 
       <div>
 
         <div class="section-title">
-          Simple.<br>
-          <em>Flexible.</em>
+          Pick your<br>
+          <em>playground.</em>
         </div>
 
         <p class="intro">
-          Starting packages designed for businesses
-          that want to move fast.
+          Starting packages for businesses ready to move.
         </p>
 
       </div>
@@ -1520,20 +1875,11 @@ footer {
     <div class="pricing-grid">
 
 
-      <!-- ADS -->
-
       <div class="price-card reveal">
 
         <div class="price-top">
-
-          <div class="price-number">
-            01 / ADS
-          </div>
-
-          <div class="price-tag">
-            Monthly
-          </div>
-
+          <div class="price-number">01 / ADS</div>
+          <div class="price-tag">MONTHLY</div>
         </div>
 
         <h3>
@@ -1543,25 +1889,19 @@ footer {
 
         <p class="price-description">
           Performance advertising, campaign setup,
-          optimization, audience targeting and
-          reporting.
+          optimization and reporting.
         </p>
 
         <div class="price-bottom">
 
-          <div class="price-label">
-            Starting from
-          </div>
+          <div class="price-label">Starting from</div>
 
           <div class="price-value">
             Rp 2.5M / month
           </div>
 
-          <a
-            href="#contact"
-            class="btn price-btn"
-          >
-            Get Started ↗
+          <a href="#contact" class="btn price-btn">
+            Start ↗
           </a>
 
         </div>
@@ -1569,20 +1909,11 @@ footer {
       </div>
 
 
-      <!-- BRANDING -->
-
       <div class="price-card reveal">
 
         <div class="price-top">
-
-          <div class="price-number">
-            02 / BRANDING
-          </div>
-
-          <div class="price-tag">
-            Project
-          </div>
-
+          <div class="price-number">02 / BRAND</div>
+          <div class="price-tag">PROJECT</div>
         </div>
 
         <h3>
@@ -1597,19 +1928,14 @@ footer {
 
         <div class="price-bottom">
 
-          <div class="price-label">
-            Starting from
-          </div>
+          <div class="price-label">Starting from</div>
 
           <div class="price-value">
             Rp 1.5M / project
           </div>
 
-          <a
-            href="#contact"
-            class="btn price-btn"
-          >
-            Get Started ↗
+          <a href="#contact" class="btn price-btn">
+            Start ↗
           </a>
 
         </div>
@@ -1617,20 +1943,11 @@ footer {
       </div>
 
 
-      <!-- MERCHANDISE -->
-
       <div class="price-card reveal">
 
         <div class="price-top">
-
-          <div class="price-number">
-            03 / MERCH
-          </div>
-
-          <div class="price-tag">
-            Project
-          </div>
-
+          <div class="price-number">03 / COMMUNITY</div>
+          <div class="price-tag">PROJECT</div>
         </div>
 
         <h3>
@@ -1639,25 +1956,20 @@ footer {
         </h3>
 
         <p class="price-description">
-          Merchandise concepts, product development,
-          community activation and creative support.
+          Merchandise concepts, product development
+          and community activation.
         </p>
 
         <div class="price-bottom">
 
-          <div class="price-label">
-            Starting from
-          </div>
+          <div class="price-label">Starting from</div>
 
           <div class="price-value">
             Rp 2M / project
           </div>
 
-          <a
-            href="#contact"
-            class="btn price-btn"
-          >
-            Get Started ↗
+          <a href="#contact" class="btn price-btn">
+            Start ↗
           </a>
 
         </div>
@@ -1665,20 +1977,11 @@ footer {
       </div>
 
 
-      <!-- TALENT -->
-
       <div class="price-card reveal">
 
         <div class="price-top">
-
-          <div class="price-number">
-            04 / TALENT
-          </div>
-
-          <div class="price-tag">
-            Placement
-          </div>
-
+          <div class="price-number">04 / TALENT</div>
+          <div class="price-tag">PLACEMENT</div>
         </div>
 
         <h3>
@@ -1688,25 +1991,19 @@ footer {
 
         <p class="price-description">
           Talent sourcing, screening and workforce
-          support for businesses looking to build
-          stronger teams.
+          support for growing teams.
         </p>
 
         <div class="price-bottom">
 
-          <div class="price-label">
-            Starting from
-          </div>
+          <div class="price-label">Starting from</div>
 
           <div class="price-value">
             Rp 1.5M / placement
           </div>
 
-          <a
-            href="#contact"
-            class="btn price-btn"
-          >
-            Get Started ↗
+          <a href="#contact" class="btn price-btn">
+            Start ↗
           </a>
 
         </div>
@@ -1716,44 +2013,33 @@ footer {
 
     </div>
 
-
-    <p class="pricing-note">
-      * Prices shown are starting prices and may vary
-      depending on scope, duration, quantity and
-      project requirements.
-    </p>
-
   </div>
 
 </section>
 
 
+<!-- ================= CLIENTS ================= -->
 
-<!-- =======================================================
-     OUR CLIENTS
-======================================================== -->
-
-<section id="clients">
+<section id="clients" class="clients">
 
   <div class="container">
 
     <div class="section-head reveal">
 
       <div class="section-number">
-        04 / OUR CLIENTS
+        06 / OUR CLIENTS
       </div>
 
       <div>
 
         <div class="section-title">
-          Trusted by<br>
-          <em>brands & communities.</em>
+          People we've<br>
+          <em>built with.</em>
         </div>
 
         <p class="intro">
-          A selection of businesses, brands, artists,
-          communities and organizations we've had
-          the opportunity to work with.
+          Businesses, brands, artists and communities
+          we've had the opportunity to work with.
         </p>
 
       </div>
@@ -1763,79 +2049,35 @@ footer {
 
     <div class="client-category reveal">
 
-      <div class="category-heading">
-
+      <div class="category-title">
         <span>01</span>
-
-        <h3>
-          Ads Specialist
-        </h3>
-
+        <h3>Ads Specialist</h3>
       </div>
-
 
       <div class="client-grid">
 
-        <div class="client-card">
-
-          <span class="client-index">
-            01
-          </span>
-
+        <div class="client">
+          <span class="client-index">01</span>
           <div>
-
-            <div class="client-name">
-              GLM Parfum
-            </div>
-
-            <div class="client-note">
-              Performance Ads
-            </div>
-
+            <div class="client-name">GLM Parfum</div>
+            <div class="client-note">Performance Ads</div>
           </div>
-
         </div>
 
-
-        <div class="client-card">
-
-          <span class="client-index">
-            02
-          </span>
-
+        <div class="client">
+          <span class="client-index">02</span>
           <div>
-
-            <div class="client-name">
-              Erosia Construction
-            </div>
-
-            <div class="client-note">
-              Performance Ads
-            </div>
-
+            <div class="client-name">Erosia Construction</div>
+            <div class="client-note">Performance Ads</div>
           </div>
-
         </div>
 
-
-        <div class="client-card">
-
-          <span class="client-index">
-            03
-          </span>
-
+        <div class="client">
+          <span class="client-index">03</span>
           <div>
-
-            <div class="client-name">
-              Dibangun.id
-            </div>
-
-            <div class="client-note">
-              Performance Ads
-            </div>
-
+            <div class="client-name">Dibangun.id</div>
+            <div class="client-note">Performance Ads</div>
           </div>
-
         </div>
 
       </div>
@@ -1845,55 +2087,49 @@ footer {
 
     <div class="client-category reveal">
 
-      <div class="category-heading">
-
+      <div class="category-title">
         <span>02</span>
-
-        <h3>
-          Merchandise · Music & Community
-        </h3>
-
+        <h3>Merchandise · Music & Community</h3>
       </div>
-
 
       <div class="client-grid">
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">01</span>
           <div class="client-name">Persebaya</div>
         </div>
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">02</span>
           <div class="client-name">Mentalita Fest</div>
         </div>
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">03</span>
           <div class="client-name">Sleman SKA</div>
         </div>
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">04</span>
           <div class="client-name">Serigala Malam</div>
         </div>
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">05</span>
           <div class="client-name">Rebellion Rose</div>
         </div>
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">06</span>
           <div class="client-name">Efek Rumah Kaca</div>
         </div>
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">07</span>
           <div class="client-name">Souljah x 8 Ball</div>
         </div>
 
-        <div class="client-card">
+        <div class="client">
           <span class="client-index">08</span>
           <div class="client-name">Ikhsan Skuter</div>
         </div>
@@ -1907,112 +2143,70 @@ footer {
 </section>
 
 
+<!-- ================= WHY YOGYAKARTA ================= -->
 
-<!-- =======================================================
-     APPROACH
-======================================================== -->
+<section class="yogya">
 
-<section id="approach">
+  <div class="container yogya-grid">
 
-  <div class="container">
-
-    <div class="section-head reveal">
+    <div class="reveal">
 
       <div class="section-number">
-        05 / APPROACH
+        07 / THE ADVANTAGE
       </div>
 
-      <div>
-
-        <div class="section-title">
-          Think fast.<br>
-          <em>Move smart.</em>
-        </div>
-
-        <p class="intro">
-          We keep our process simple, collaborative
-          and focused on impact.
-        </p>
-
-      </div>
+      <h2>
+        BUILD<br>
+        HERE.<br>
+        <span>THINK</span><br>
+        GLOBAL.
+      </h2>
 
     </div>
 
 
-    <div class="approach-grid">
+    <div class="reveal">
 
+      <p class="yogya-copy">
+        SandBox is built in Yogyakarta —
+        a city with creative energy, strong talent
+        and a lower operational cost compared
+        with Jakarta.
+      </p>
 
-      <div class="approach-card reveal">
+      <div class="yogya-points">
 
-        <div class="number">
-          01
+        <div class="yogya-point">
+          <strong>Creative Talent</strong>
+          <span>
+            Access to a growing pool of creative
+            and digital talent.
+          </span>
         </div>
 
-        <h3>
-          Understand
-        </h3>
-
-        <p>
-          We start by understanding your business,
-          audience, challenge and growth opportunity.
-        </p>
-
-      </div>
-
-
-      <div class="approach-card reveal">
-
-        <div class="number">
-          02
+        <div class="yogya-point">
+          <strong>Efficient Operations</strong>
+          <span>
+            Build and operate with a more efficient
+            cost structure.
+          </span>
         </div>
 
-        <h3>
-          Design
-        </h3>
-
-        <p>
-          We build the strategy, creative direction
-          and solution around the real problem.
-        </p>
-
-      </div>
-
-
-      <div class="approach-card reveal">
-
-        <div class="number">
-          03
+        <div class="yogya-point">
+          <strong>Global Mindset</strong>
+          <span>
+            Local execution with a global perspective.
+          </span>
         </div>
 
-        <h3>
-          Execute
-        </h3>
-
-        <p>
-          Ideas become campaigns, products, content,
-          people and measurable actions.
-        </p>
-
-      </div>
-
-
-      <div class="approach-card reveal">
-
-        <div class="number">
-          04
+        <div class="yogya-point">
+          <strong>Flexible Partnership</strong>
+          <span>
+            Scale support around the needs of your business.
+          </span>
         </div>
 
-        <h3>
-          Grow
-        </h3>
-
-        <p>
-          We learn from results and continuously
-          improve what works.
-        </p>
-
       </div>
-
 
     </div>
 
@@ -2021,10 +2215,7 @@ footer {
 </section>
 
 
-
-<!-- =======================================================
-     CONTACT
-======================================================== -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact" class="contact">
 
@@ -2032,8 +2223,8 @@ footer {
 
     <div class="reveal">
 
-      <div class="eyebrow">
-        06 / CONTACT
+      <div class="section-number">
+        08 / CONTACT
       </div>
 
       <h2>
@@ -2051,30 +2242,28 @@ footer {
       </div>
 
       <a
-        class="contact-link"
         href="https://wa.me/628978656079"
         target="_blank"
+        class="contact-link"
       >
         +62 897-8656-079
       </a>
-
 
       <div class="contact-label">
         Email
       </div>
 
       <a
-        class="contact-link"
         href="mailto:gilangulvasulthonii@gmail.com"
+        class="contact-link"
       >
         gilangulvasulthonii@gmail.com
       </a>
 
-
       <a
         href="https://wa.me/628978656079?text=Hello%20SandBox%2C%20I%27d%20like%20to%20discuss%20a%20project."
         target="_blank"
-        class="btn btn-dark"
+        class="btn btn-primary magnetic"
       >
         Start a Conversation ↗
       </a>
@@ -2085,14 +2274,10 @@ footer {
 
 </section>
 
-
 </main>
 
 
-
-<!-- =======================================================
-     FOOTER
-======================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -2104,7 +2289,7 @@ footer {
 
     <div class="footer-copy">
       © 2026 SandBox. All Rights Reserved.<br>
-      Business Growth · Branding · Creative · Talent
+      Build · Grow · Play
     </div>
 
   </div>
@@ -2112,229 +2297,235 @@ footer {
 </footer>
 
 
-
 <script>
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+/* ================= MOBILE MENU ================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", function() {
-
+menuBtn.addEventListener("click",()=>{
   navLinks.classList.toggle("active");
-
-  if (navLinks.classList.contains("active")) {
-
-    menuBtn.textContent = "×";
-
-  } else {
-
-    menuBtn.textContent = "☰";
-
-  }
-
+  menuBtn.textContent=navLinks.classList.contains("active")?"×":"☰";
 });
 
-
-/* CLOSE MENU AFTER CLICK */
-
-document.querySelectorAll(".nav-links a").forEach(function(link) {
-
-  link.addEventListener("click", function() {
-
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click",()=>{
     navLinks.classList.remove("active");
+    menuBtn.textContent="☰";
+  });
+});
 
-    menuBtn.textContent = "☰";
+
+/* ================= NAVBAR ================= */
+
+const navbar=document.getElementById("navbar");
+
+window.addEventListener("scroll",()=>{
+  navbar.classList.toggle("scrolled",window.scrollY>30);
+});
+
+
+/* ================= REVEAL ================= */
+
+const revealObserver=new IntersectionObserver(entries=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+
+    }
 
   });
 
+},{
+  threshold:.12
+});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+  revealObserver.observe(el);
 });
 
 
-/* =========================================================
-   NAVBAR SCROLL EFFECT
-========================================================= */
+/* ================= ACTIVE NAV ================= */
 
-const navbar = document.getElementById("navbar");
+const sections=document.querySelectorAll("section[id]");
+const navItems=document.querySelectorAll(".nav-links a");
 
-window.addEventListener("scroll", function() {
+const navObserver=new IntersectionObserver(entries=>{
 
-  if (window.scrollY > 30) {
+  entries.forEach(entry=>{
 
-    navbar.classList.add("scrolled");
+    if(entry.isIntersecting){
 
-  } else {
+      navItems.forEach(item=>{
+        item.classList.remove("active");
+      });
 
-    navbar.classList.remove("scrolled");
+      const active=document.querySelector(
+        '.nav-links a[href="#'+entry.target.id+'"]'
+      );
 
-  }
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const observer = new IntersectionObserver(
-
-  function(entries) {
-
-    entries.forEach(function(entry) {
-
-      if (entry.isIntersecting) {
-
-        entry.target.classList.add("visible");
-
-        observer.unobserve(entry.target);
-
+      if(active){
+        active.classList.add("active");
       }
 
-    });
+    }
 
-  },
+  });
 
-  {
-    threshold: 0.12
-  }
+},{
+  rootMargin:"-35% 0px -55% 0px"
+});
 
-);
-
-
-document.querySelectorAll(".reveal").forEach(function(element) {
-
-  observer.observe(element);
-
+sections.forEach(section=>{
+  navObserver.observe(section);
 });
 
 
-/* =========================================================
-   ACTIVE NAVIGATION
-========================================================= */
+/* ================= COUNTERS ================= */
 
-const sections = document.querySelectorAll("section[id]");
-const navItems = document.querySelectorAll(".nav-links a");
+const counters=document.querySelectorAll(".counter");
 
-const activeObserver = new IntersectionObserver(
+const counterObserver=new IntersectionObserver(entries=>{
 
-  function(entries) {
+  entries.forEach(entry=>{
 
-    entries.forEach(function(entry) {
+    if(!entry.isIntersecting) return;
 
-      if (entry.isIntersecting) {
+    const counter=entry.target;
+    const target=Number(counter.dataset.target);
 
-        navItems.forEach(function(item) {
+    let current=0;
+    const duration=1000;
+    const start=performance.now();
 
-          item.classList.remove("active");
+    function update(now){
 
-        });
+      const progress=Math.min((now-start)/duration,1);
 
-        const activeLink =
-          document.querySelector(
-            '.nav-links a[href="#' +
-            entry.target.id +
-            '"]'
-          );
+      current=Math.floor(
+        progress*target
+      );
 
-        if (activeLink) {
+      counter.textContent=current;
 
-          activeLink.classList.add("active");
-
-        }
-
+      if(progress<1){
+        requestAnimationFrame(update);
+      }else{
+        counter.textContent=target+"+";
       }
 
-    });
+    }
 
-  },
-
-  {
-    rootMargin: "-35% 0px -55% 0px"
-  }
-
-);
-
-
-sections.forEach(function(section) {
-
-  activeObserver.observe(section);
-
-});
-
-
-/* =========================================================
-   MOUSE INTERACTION FOR PRICING CARDS
-========================================================= */
-
-const cards = document.querySelectorAll(".price-card");
-
-cards.forEach(function(card) {
-
-  card.addEventListener("mousemove", function(e) {
-
-    const rect = card.getBoundingClientRect();
-
-    const x =
-      ((e.clientX - rect.left) / rect.width) * 100;
-
-    const y =
-      ((e.clientY - rect.top) / rect.height) * 100;
-
-    card.style.background =
-      "radial-gradient(circle at " +
-      x +
-      "% " +
-      y +
-      "%, rgba(255,255,255,.12), rgba(255,255,255,.045) 45%)";
+    requestAnimationFrame(update);
+    counterObserver.unobserve(counter);
 
   });
 
-  card.addEventListener("mouseleave", function() {
+},{
+  threshold:.7
+});
 
-    card.style.background =
-      "rgba(255,255,255,.045)";
+counters.forEach(counter=>{
+  counterObserver.observe(counter);
+});
+
+
+/* ================= PRICING SPOTLIGHT ================= */
+
+document.querySelectorAll(".price-card").forEach(card=>{
+
+  card.addEventListener("mousemove",event=>{
+
+    const rect=card.getBoundingClientRect();
+
+    const x=event.clientX-rect.left;
+    const y=event.clientY-rect.top;
+
+    card.style.setProperty("--mx",x+"px");
+    card.style.setProperty("--my",y+"px");
 
   });
 
 });
 
 
-/* =========================================================
-   SMOOTH ANCHOR OFFSET
-========================================================= */
+/* ================= PLAYGROUND TILT ================= */
 
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+document.querySelectorAll(".play-card").forEach(card=>{
 
-  anchor.addEventListener("click", function(e) {
+  card.addEventListener("mousemove",event=>{
 
-    const targetId =
-      this.getAttribute("href");
+    const rect=card.getBoundingClientRect();
 
-    if (targetId === "#") return;
+    const x=(event.clientX-rect.left)/rect.width-.5;
+    const y=(event.clientY-rect.top)/rect.height-.5;
 
-    const target =
-      document.querySelector(targetId);
+    card.style.transform=
+      "perspective(900px) rotateX("+(-y*3)+"deg) rotateY("+(x*3)+"deg)";
 
-    if (!target) return;
+  });
 
-    e.preventDefault();
+  card.addEventListener("mouseleave",()=>{
+    card.style.transform="";
+  });
 
-    const offset = 75;
+});
 
-    const position =
-      target.getBoundingClientRect().top +
-      window.pageYOffset -
+
+/* ================= MAGNETIC BUTTONS ================= */
+
+document.querySelectorAll(".magnetic").forEach(button=>{
+
+  button.addEventListener("mousemove",event=>{
+
+    const rect=button.getBoundingClientRect();
+
+    const x=event.clientX-rect.left-rect.width/2;
+    const y=event.clientY-rect.top-rect.height/2;
+
+    button.style.transform=
+      "translate("+x*.12+"px,"+y*.12+"px)";
+
+  });
+
+  button.addEventListener("mouseleave",()=>{
+    button.style.transform="";
+  });
+
+});
+
+
+/* ================= SMOOTH ANCHORS ================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+  anchor.addEventListener("click",event=>{
+
+    const id=anchor.getAttribute("href");
+
+    if(id==="#") return;
+
+    const target=document.querySelector(id);
+
+    if(!target) return;
+
+    event.preventDefault();
+
+    const offset=75;
+
+    const top=
+      target.getBoundingClientRect().top+
+      window.scrollY-
       offset;
 
     window.scrollTo({
-
-      top: position,
-
-      behavior: "smooth"
-
+      top:top,
+      behavior:"smooth"
     });
 
   });
